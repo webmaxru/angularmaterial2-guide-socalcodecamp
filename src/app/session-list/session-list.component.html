@@ -1,0 +1,27 @@
+<div *ngFor="let session of sessions">
+  <img src="{{session.photo[0].src}}" alt="{{session.speaker[0].text}}">
+  <h1>
+    <a href="{{session.title[0].href}}">{{session.title[0].text}}</a>
+  </h1>
+  <p *ngIf="session.abstract">
+    <small>{{session.abstract[0].text}}</small>
+  </p>
+  <p>
+    By
+    <a href="{{session.speaker[0].href}}">{{session.speaker[0].text}}</a>
+  </p>
+  <p *ngIf="session.level">
+    Level:
+    {{session.level[0].text}}
+  </p>
+  <p>
+    Interested:
+    {{session.interested[0].text}}
+  </p>
+  <ul>
+    <li *ngFor="let tag of session.tags">
+      <a href="{{tag.href}}">{{tag.text}}</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
