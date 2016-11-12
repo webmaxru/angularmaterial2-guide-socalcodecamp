@@ -1,0 +1,18 @@
+@import '~@angular/material/core/theming/all-theme';
+@include md-core();
+
+$primary-light: md-palette($md-cyan);
+$accent-light: md-palette($md-amber);
+
+$socal-light-theme: md-light-theme($primary-light, $accent-light);
+
+@include angular-material-theme($socal-light-theme);
+
+.socal-dark {
+  $primary-dark: md-palette($md-pink, 700);
+  $accent-dark: md-palette($md-blue-grey);
+
+  $socal-dark-theme: md-dark-theme($primary-dark, $accent-dark);
+
+  @include angular-material-theme($socal-dark-theme);
+}

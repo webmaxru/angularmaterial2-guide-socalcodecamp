@@ -1,0 +1,44 @@
+<md-card>
+
+  <md-card-title>{{title}}</md-card-title>
+  <md-card-subtitle>{{tags}}</md-card-subtitle>
+
+  <md-card-content>
+    <p>
+      <md-input type="text" placeholder="Title" class="width-full" [(ngModel)]="title"></md-input>
+    </p>
+    <p>
+      <md-textarea placeholder="Abstract" disabled value="Our amazing web applications need high-quality UI components. So we have Angular 2 app on one hand and Material Design visual language on another. How to combine these without calling designer and spending days on struggling with CSS cross-platform issues and re-inventing client-side code for common UI scenarios?" class="width-full"></md-textarea>
+    </p>
+    <p>
+      <md-input type="text" placeholder="Tags" [value]="tags" class="width-full">
+        <md-hint align="end">Comma separated</md-hint>
+      </md-input>
+    </p>
+    <p>
+      Level: <md-slider min="100" max="800" step="100" tick-interval="100" thumb-label [(ngModel)]="level"></md-slider> {{level}}
+    </p>
+    <p>
+      <md-input type="text" placeholder="Length" class="width-auto">
+        <span md-suffix>min</span>
+      </md-input>
+    </p>
+    <p>
+      <md-checkbox>
+        Published
+      </md-checkbox>
+    </p>
+    <p>
+      <md-radio-group>
+        <md-radio-button value="en">English</md-radio-button>
+        <md-radio-button value="no">Norwegian</md-radio-button>
+      </md-radio-group>
+    </p>
+  </md-card-content>
+
+  <md-card-actions>
+    <button md-button color="primary">Edit</button>
+    <button md-raised-button color="warn" (click)="openDialog()">Delete</button>
+  </md-card-actions>
+
+</md-card>

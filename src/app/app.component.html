@@ -1,9 +1,76 @@
-<md-toolbar color="primary">
-  <span>
-    <md-icon class="icon-20">menu</md-icon>
-    SoCal Code Camp
-  </span>
-  <button md-icon-button>
-    <md-icon>more_vert</md-icon>
-  </button>
-</md-toolbar>
+<md-sidenav-layout [class.socal-dark]="isSoCalDarkTheme">
+  <md-sidenav #sidenav mode="push">
+
+    <md-nav-list>
+      <a href="#" md-list-item>
+        <md-icon>assignment</md-icon>
+        Program
+      </a>
+      <a href="#" md-list-item>
+        <md-icon>build</md-icon>
+        Workshops
+      </a>
+      <a href="#" md-list-item>
+        <md-icon>info</md-icon>
+        Info
+      </a>
+      <a href="#" md-list-item>
+        <md-icon>credit_card</md-icon>
+        Tickets
+      </a>
+      <md-divider></md-divider>
+      <a href="#" md-list-item>
+        <md-icon>account_circle</md-icon>
+        My Account
+      </a>
+    </md-nav-list>
+
+  </md-sidenav>
+
+  <md-toolbar color="primary">
+
+    <button md-icon-button (click)="sidenav.open()">
+      <md-icon>menu</md-icon>
+    </button>
+
+    <span>{{title}}</span>
+
+    <span style="flex: 1 1 auto;"></span>
+
+    <button md-icon-button [md-menu-trigger-for]="serviceMenu">
+      <md-icon>more_vert</md-icon>
+    </button>
+
+  </md-toolbar>
+
+  <md-menu x-position="before" #serviceMenu="mdMenu">
+    <button md-menu-item (click)="isSoCalDarkTheme=!isSoCalDarkTheme">Light/dark theme</button>
+    <button md-menu-item>Help</button>
+  </md-menu>
+
+  <md-tab-group>
+
+    <md-tab>
+      <template md-tab-label>Sessions</template>
+
+      <app-session-list></app-session-list>
+
+    </md-tab>
+
+    <md-tab>
+      <template md-tab-label>Edit session</template>
+
+      <app-session-detail></app-session-detail>
+
+    </md-tab>
+
+    <md-tab>
+      <template md-tab-label>My account</template>
+
+      <app-my-account></app-my-account>
+
+    </md-tab>
+
+  </md-tab-group>
+
+</md-sidenav-layout>

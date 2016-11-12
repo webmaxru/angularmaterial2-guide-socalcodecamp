@@ -3,3 +3,12 @@
 /* @import '~https://fonts.googleapis.com/icon?family=Material+Icons';  */
 @import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
 @import './assets/fallback/material-icons.css';
+
+body {
+  margin: 0;
+}
+
+a {
+    color: #428bca;
+    text-decoration: none;
+}

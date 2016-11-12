@@ -4,12 +4,20 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { SessionListComponent } from './session-list/session-list.component';
+import { SessionService } from './session.service';
+import { SessionDetailComponent, ConfirmationDialogComponent } from './session-detail/session-detail.component';
+import { MyAccountComponent } from './my-account/my-account.component';
 
 import { MaterialModule } from '@angular/material';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SessionListComponent,
+    SessionDetailComponent,
+    MyAccountComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -17,7 +25,11 @@ import { MaterialModule } from '@angular/material';
     HttpModule,
     MaterialModule.forRoot()
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [SessionService],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    AppComponent,
+    ConfirmationDialogComponent
+  ]
 })
 export class AppModule { }
